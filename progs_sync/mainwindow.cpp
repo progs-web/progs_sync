@@ -16,6 +16,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnEntrar_clicked()
 {
-    QMessageBox::about(0,"ALexandre","Teste de janela");
+
+    String email = ui->edtEmail->text();
+    String senha = ui->edtSenha->text();
+
+
+
+    QMessageBox::about(0,"ALexandre","Email"+email+" senha :"+senha);
 
 }
