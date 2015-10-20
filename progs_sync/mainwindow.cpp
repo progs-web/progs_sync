@@ -17,11 +17,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnEntrar_clicked()
 {
 
-    String email = ui->edtEmail->text();
-    String senha = ui->edtSenha->text();
+    QString email = ui->edtEmail->text();
+    QString senha = ui->edtSenha->text();
 
 
+c.show();
 
-    QMessageBox::about(0,"ALexandre","Email"+email+" senha :"+senha);
+
+    //QMessageBox::about(0,"ALexandre","Email"+email+" senha :"+senha);
 
 }

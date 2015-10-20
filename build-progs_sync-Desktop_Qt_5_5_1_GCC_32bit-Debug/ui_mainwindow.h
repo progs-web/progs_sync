@@ -21,6 +21,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,10 +32,10 @@ public:
     QWidget *centralWidget;
     QPushButton *btnEntrar;
     QWidget *widget;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QLineEdit *edtEmail;
-    QWidget *widget1;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
     QLineEdit *edtSenha;
@@ -45,50 +46,70 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(290, 412);
+        MainWindow->resize(300, 400);
+        MainWindow->setMinimumSize(QSize(300, 400));
+        MainWindow->setMaximumSize(QSize(300, 400));
+        MainWindow->setStyleSheet(QStringLiteral("background-color:white"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         btnEntrar = new QPushButton(centralWidget);
         btnEntrar->setObjectName(QStringLiteral("btnEntrar"));
-        btnEntrar->setGeometry(QRect(40, 320, 96, 30));
+        btnEntrar->setGeometry(QRect(30, 300, 96, 30));
+        btnEntrar->setAutoFillBackground(true);
+        btnEntrar->setStyleSheet(QStringLiteral("background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(137, 137, 137, 255), stop:1 rgba(255, 255, 255, 255))"));
         widget = new QWidget(centralWidget);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 140, 251, 34));
-        horizontalLayout = new QHBoxLayout(widget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        widget->setGeometry(QRect(20, 160, 254, 72));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
+        label->setMinimumSize(QSize(50, 30));
+        label->setMaximumSize(QSize(50, 30));
 
         horizontalLayout->addWidget(label);
 
         edtEmail = new QLineEdit(widget);
         edtEmail->setObjectName(QStringLiteral("edtEmail"));
-        edtEmail->setAutoFillBackground(true);
+        edtEmail->setMinimumSize(QSize(200, 30));
+        edtEmail->setMaximumSize(QSize(200, 30));
+        edtEmail->setAutoFillBackground(false);
+        edtEmail->setStyleSheet(QLatin1String("background-color:white\n"
+""));
 
         horizontalLayout->addWidget(edtEmail);
 
-        widget1 = new QWidget(centralWidget);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(10, 190, 251, 34));
-        horizontalLayout_2 = new QHBoxLayout(widget1);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget1);
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setMinimumSize(QSize(50, 30));
+        label_2->setMaximumSize(QSize(50, 30));
 
         horizontalLayout_2->addWidget(label_2);
 
-        edtSenha = new QLineEdit(widget1);
+        edtSenha = new QLineEdit(widget);
         edtSenha->setObjectName(QStringLiteral("edtSenha"));
-        edtSenha->setAutoFillBackground(true);
+        edtSenha->setMinimumSize(QSize(200, 30));
+        edtSenha->setMaximumSize(QSize(200, 30));
+        edtSenha->setAutoFillBackground(false);
+        edtSenha->setStyleSheet(QStringLiteral("background-color:white"));
         edtSenha->setEchoMode(QLineEdit::Password);
 
         horizontalLayout_2->addWidget(edtSenha);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
 
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
@@ -105,7 +126,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Progs Sync", 0));
         btnEntrar->setText(QApplication::translate("MainWindow", "entrar", 0));
         label->setText(QApplication::translate("MainWindow", "E-Mail", 0));
         label_2->setText(QApplication::translate("MainWindow", "Senha", 0));
