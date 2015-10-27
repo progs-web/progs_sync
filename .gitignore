@@ -1,0 +1,32 @@
+*.slo
+*.lo
+*.o
+
+*.so
+*.so.*
+*.dylib
+*.dll
+
+*.lai
+*.la
+*.a
+
+*.lib
+
+ld# Executables
+*.exe
+*.out
+*.app
+
+# Qt-es
+*.pro.user
+*.pro.user.*
+moc_*.cpp
+qrc_*.cpp
+Makefile
+*-build-*
+build*
+.*
+!.tx
+!.gitignore
+*~
