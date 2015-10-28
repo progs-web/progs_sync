@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    c = new Configuracao(0);
 }
 
 MainWindow::~MainWindow()
@@ -14,16 +15,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_btnEntrar_clicked()
+
+void MainWindow::on_btnLogin_clicked()
 {
-
-    QString email = ui->edtEmail->text();
-    QString senha = ui->edtSenha->text();
-
-
-c.show();
-
-
-    //QMessageBox::about(0,"ALexandre","Email"+email+" senha :"+senha);
-
+    c->show();
+    close();
 }

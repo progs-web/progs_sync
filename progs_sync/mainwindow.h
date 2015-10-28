@@ -17,11 +17,13 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btnEntrar_clicked();
+
+
+    void on_btnLogin_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Configuracao c;
+    Configuracao *c;
 
 };
 
