@@ -2,7 +2,8 @@
 #define CONFIGURACAO_H
 
 #include "ui_configuracao.h"
-#include <QStringListModel>
+#include <QFtp>
+
 
 class Configuracao : public QMainWindow, private Ui::Configuracao
 {
@@ -36,13 +37,28 @@ private slots:
     void on_bntRemover_clicked();
     void on_btnEnviar_clicked();
     void on_btnCancelar_clicked();
-
-
-
     void on_bntLimpar_clicked();
+    void on_bntTestConnection_clicked();
+    void on_bntSalvarConf_clicked();
+
+    // ftp class
+    void connectOrDisconnect();
+    void ftpStatus(int estado);
+    void addAlista(const QUrlInfo &urlInfo);
+    //    void backupStart();
+    //    void ftpCommandFinished(int commandId, bool error);
+    void processFile(QTreeWidgetItem *item);
+    //    //void cdToParent();
+    //    void updateDataTransferProgress(qint64 readBytes,
+    //                                    qint64 totalBytes);
+    //    //void enableDownloadButton();
+    // fim
+
 
 private:
-    QStringListModel *m_listModel;    
+    QFtp *ftp;
+    QHash<QString, bool> isDirectory;
+    QString currentPath;
     QStringList m_listaArquivos;
 };
 

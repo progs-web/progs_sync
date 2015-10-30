@@ -51,7 +51,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tabServidor">
        <attribute name="title">
@@ -177,7 +177,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineDiretorio"/>
+           <widget class="QLineEdit" name="lineDiretorio">
+            <property name="text">
+             <string>/</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -375,15 +379,35 @@
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QListWidget" name="listFile">
+         <widget class="QTreeWidget" name="listFile">
           <property name="acceptDrops">
            <bool>true</bool>
           </property>
           <property name="dragDropMode">
            <enum>QAbstractItemView::DragDrop</enum>
           </property>
-          <property name="viewMode">
-           <enum>QListView::ListMode</enum>
+          <property name="animated">
+           <bool>true</bool>
+          </property>
+          <property name="columnCount">
+           <number>0</number>
+          </property>
+          <attribute name="headerDefaultSectionSize">
+           <number>130</number>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Arquivos Remotos</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QTreeWidget" name="listFileRemoto">
+          <property name="columnCount">
+           <number>0</number>
           </property>
          </widget>
         </item>
@@ -396,5 +420,86 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>lineHost</sender>
+   <signal>editingFinished()</signal>
+   <receiver>bntSalvarConf</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>417</x>
+     <y>293</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinPorta</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>bntSalvarConf</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>428</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>467</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineUser</sender>
+   <signal>editingFinished()</signal>
+   <receiver>bntSalvarConf</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>255</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>410</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linePass</sender>
+   <signal>editingFinished()</signal>
+   <receiver>bntSalvarConf</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>439</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineDiretorio</sender>
+   <signal>editingFinished()</signal>
+   <receiver>bntSalvarConf</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>421</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
